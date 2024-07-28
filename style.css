@@ -1,0 +1,41 @@
+.container {
+    height: 550px;
+    width: 400px;
+    background-color: grey;
+    margin: 0 auto;
+    margin-top: 25px;
+    padding: 5px 5px 5px 5px;
+}
+
+.container .display {
+    width: 390px;
+    height: 70px;
+    margin: 0 auto;
+    margin-top: 5px;
+    background-color: #fff;
+}
+
+.container .buttons {
+    display: flex;
+    margin: 0 auto;
+    margin-top: 10px;
+    height: 85px;
+    justify-content: center;
+    gap: 3px;
+}
+
+.container button {
+    height: 90px;
+    width: 90px;
+    font-size: 25px;
+}
+
+.container .digits {
+    display: flex;
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 309px;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3px;
+}
