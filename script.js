@@ -34,3 +34,16 @@ function operate(firstNum, operator, secondNum) {
         break;
     };
 };
+
+const display = document.querySelector('.display');
+let displayValue = '';
+const numberList = document.querySelectorAll('.digit');
+const numbers = [...numberList];
+numbers[0].addEventListener('click', function() {
+    displayValue = displayValue + '1';
+    display.textContent = displayValue;
+});
+numbers[1].addEventListener('click', function() {
+    displayValue = displayValue + '2';
+    display.textContent = displayValue;
+});
