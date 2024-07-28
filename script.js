@@ -20,16 +20,16 @@ let secondNum = '';
 
 function operate(firstNum, operator, secondNum) {
     switch(operator) {
-        case '+':
+        case ' + ':
             return add(firstNum, secondNum);
         break;
-        case '-':
+        case ' - ':
             return subtract(firstNum, secondNum);
         break;
-        case '*':
+        case ' * ':
             return multiply(firstNum, secondNum);
         break;
-        case '/':
+        case ' ÷ ':
             return divide(firstNum, secondNum);
         break;
     };
@@ -37,6 +37,12 @@ function operate(firstNum, operator, secondNum) {
 
 const display = document.querySelector('.display');
 let displayValue = '';
+const clearBtn = document.querySelector('#clear_btn');
+clearBtn.addEventListener('click', function() {
+    displayValue = '';
+    display.textContent = displayValue;
+});
+
 const numberList = document.querySelectorAll('.digit');
 const numbers = [...numberList];
 numbers[0].addEventListener('click', function() {
@@ -46,4 +52,62 @@ numbers[0].addEventListener('click', function() {
 numbers[1].addEventListener('click', function() {
     displayValue = displayValue + '2';
     display.textContent = displayValue;
+});
+numbers[2].addEventListener('click', function() {
+    displayValue = displayValue + '3';
+    display.textContent = displayValue;
+});
+numbers[3].addEventListener('click', function() {
+    displayValue = displayValue + '4';
+    display.textContent = displayValue;
+});
+numbers[4].addEventListener('click', function() {
+    displayValue = displayValue + '5';
+    display.textContent = displayValue;
+});
+numbers[5].addEventListener('click', function() {
+    displayValue = displayValue + '6';
+    display.textContent = displayValue;
+});
+numbers[6].addEventListener('click', function() {
+    displayValue = displayValue + '7';
+    display.textContent = displayValue;
+});
+numbers[7].addEventListener('click', function() {
+    displayValue = displayValue + '8';
+    display.textContent = displayValue;
+});
+numbers[8].addEventListener('click', function() {
+    displayValue = displayValue + '9';
+    display.textContent = displayValue;
+});
+numbers[9].addEventListener('click', function() {
+    displayValue = displayValue + '0';
+    display.textContent = displayValue;
+});
+
+const btnList = document.querySelectorAll('.button');
+const miscBtns = [...btnList];
+miscBtns[0].addEventListener('click', function() {
+    firstNum = displayValue;
+    displayValue = displayValue + ' + ';
+    display.textContent = displayValue;
+});
+miscBtns[1].addEventListener('click', function() {
+    firstNum = displayValue;
+    displayValue = displayValue + ' - ';
+    display.textContent = displayValue;
+});
+miscBtns[2].addEventListener('click', function() {
+    firstNum = displayValue;
+    displayValue = displayValue + ' * ';
+    display.textContent = displayValue;
+});
+miscBtns[3].addEventListener('click', function() {
+    firstNum = displayValue;
+    displayValue = displayValue + ' ÷ ';
+    display.textContent = displayValue;
+});
+miscBtns[6].addEventListener('click', function() {
+
 });

@@ -17,6 +17,7 @@
     padding-right: 5px;
     background-color: #fff;
     font-size: 40px;
+    text-align: right;
 }
 
 .container .buttons {
@@ -29,8 +30,8 @@
 }
 
 .container button {
-    height: 90px;
-    width: 90px;
+    height: 75px;
+    width: 75px;
     font-size: 25px;
 }
 
@@ -38,7 +39,7 @@
     display: flex;
     margin: 0 auto;
     margin-top: 10px;
-    width: 309px;
+    width: 250px;
     justify-content: center;
     flex-wrap: wrap;
     gap: 3px;
