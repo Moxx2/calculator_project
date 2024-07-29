@@ -148,7 +148,11 @@ miscBtns[5].addEventListener('click', function() {
 });
 
 miscBtns[6].addEventListener('click', function() {
-    if (Array.from(displayValue).length > 2) {
+    if (displayValue.split('+').length > 1
+        || displayValue.split('-').length > 1
+        || displayValue.split('*').length > 1
+        || displayValue.split('÷').length > 1
+        ) {
         calculate();  
     };
 });
