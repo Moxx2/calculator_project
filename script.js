@@ -1,17 +1,17 @@
 function add(a, b) {
-    return parseInt(a) + parseInt(b);
+    return Number(a) + Number(b);
 };
 
 function subtract(a, b) {
-    return parseInt(a) - parseInt(b);
+    return Number(a) - Number(b);
 };
 
 function multiply(a, b) {
-    return parseInt(a) * parseInt(b);
+    return a * b;
 };
 
 function divide(a, b) {
-    return parseInt(a) / parseInt(b);
+    return a / b;
 };
 
 let firstNum = '';
@@ -86,29 +86,69 @@ numbers[9].addEventListener('click', function() {
     display.textContent = displayValue;
 });
 
+let dotable = true;
+
 const btnList = document.querySelectorAll('.button');
 const miscBtns = [...btnList];
 miscBtns[0].addEventListener('click', function() {
     displayValue = displayValue + ' + ';
     display.textContent = displayValue;
+    dotable = true;
+    if (displayValue.split('+').length > 2) {
+        calculate();    
+    };
 });
 miscBtns[1].addEventListener('click', function() {
     displayValue = displayValue + ' - ';
     display.textContent = displayValue;
+    dotable = true;
+    if (displayValue.split('-').length > 2) {
+        calculate();    
+    };
 });
 miscBtns[2].addEventListener('click', function() {
     displayValue = displayValue + ' * ';
     display.textContent = displayValue;
+    dotable = true;
+    if (displayValue.split('*').length > 2) {
+        calculate();    
+    };
 });
 miscBtns[3].addEventListener('click', function() {
     displayValue = displayValue + ' ÷ ';
     display.textContent = displayValue;
+    dotable = true;
+    if (displayValue.split('÷').length > 2) {
+        calculate();    
+    };
 });
-miscBtns[6].addEventListener('click', function() {
+
+
+function calculate() {
     displayArr = displayValue.split(" ");
     firstNum = displayArr[0];
     operator = displayArr[1];
     secondNum = displayArr[2];
-    displayValue = operate(firstNum, operator, secondNum);
-    display.textContent = displayValue;
+    if (operator == '÷' && secondNum == '0') {
+        displayValue = 'ERROR';
+        display.textContent = displayValue;
+    } else {
+        displayValue = Math.round(operate(firstNum, operator, secondNum) * 1000) / 1000;
+        display.textContent = displayValue;
+        dotable = true;
+    };
+};
+
+miscBtns[5].addEventListener('click', function() {
+    if (dotable === true) {
+        displayValue = displayValue + '.';
+        display.textContent = displayValue;
+        dotable = false;
+    };
+});
+
+miscBtns[6].addEventListener('click', function() {
+    if (Array.from(displayValue).length > 2) {
+        calculate();  
+    };
 });
