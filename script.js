@@ -1,17 +1,17 @@
 function add(a, b) {
-    return a + b;
+    return parseInt(a) + parseInt(b);
 };
 
 function subtract(a, b) {
-    return a - b;
+    return parseInt(a) - parseInt(b);
 };
 
 function multiply(a, b) {
-    return a * b;
+    return parseInt(a) * parseInt(b);
 };
 
 function divide(a, b) {
-    return a / b;
+    return parseInt(a) / parseInt(b);
 };
 
 let firstNum = '';
@@ -20,16 +20,16 @@ let secondNum = '';
 
 function operate(firstNum, operator, secondNum) {
     switch(operator) {
-        case ' + ':
+        case '+':
             return add(firstNum, secondNum);
         break;
-        case ' - ':
+        case '-':
             return subtract(firstNum, secondNum);
         break;
-        case ' * ':
+        case '*':
             return multiply(firstNum, secondNum);
         break;
-        case ' ÷ ':
+        case '÷':
             return divide(firstNum, secondNum);
         break;
     };
@@ -89,25 +89,26 @@ numbers[9].addEventListener('click', function() {
 const btnList = document.querySelectorAll('.button');
 const miscBtns = [...btnList];
 miscBtns[0].addEventListener('click', function() {
-    firstNum = displayValue;
     displayValue = displayValue + ' + ';
     display.textContent = displayValue;
 });
 miscBtns[1].addEventListener('click', function() {
-    firstNum = displayValue;
     displayValue = displayValue + ' - ';
     display.textContent = displayValue;
 });
 miscBtns[2].addEventListener('click', function() {
-    firstNum = displayValue;
     displayValue = displayValue + ' * ';
     display.textContent = displayValue;
 });
 miscBtns[3].addEventListener('click', function() {
-    firstNum = displayValue;
     displayValue = displayValue + ' ÷ ';
     display.textContent = displayValue;
 });
 miscBtns[6].addEventListener('click', function() {
-
+    displayArr = displayValue.split(" ");
+    firstNum = displayArr[0];
+    operator = displayArr[1];
+    secondNum = displayArr[2];
+    displayValue = operate(firstNum, operator, secondNum);
+    display.textContent = displayValue;
 });
